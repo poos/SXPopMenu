@@ -2,9 +2,13 @@
 create a popMenu(气泡菜单) for you app
 ###!修改自https://github.com/liufengting/FTPopOverMenu 以适应工程,修改了箭头顶部的弧度
 
-##导入方法#import "FTPopOverMenu.h"
+##导入方法
+
+pod 'SXPopMenu', '~>1.1.0'
+
 ##调用
-###1.精简了大量的方法,只留下了:
+头文件#import "FTPopOverMenu.h"
+###.精简了大量的方法,只留下了:
 ```
 /**
  *  show method with SenderFrame with imageNameArray
@@ -22,7 +26,7 @@ create a popMenu(气泡菜单) for you app
                    doneBlock:(FTPopOverMenuDoneBlock)doneBlock
                 dismissBlock:(FTPopOverMenuDismissBlock)dismissBlock;
 ```
-###2.添加了不带箭头的pop方法
+###.添加了不带箭头的pop方法
 ```
 /**
  *  show method with SenderFrame with imageNameArray
