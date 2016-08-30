@@ -41,4 +41,4 @@ create a popMenu(气泡菜单) for you app
                         dismissBlock:(FTPopOverMenuDismissBlock)dismissBlock;
 ```
 
-![](http://)
+![img](https://github.com/poos/SXPopMenu/blob/master/Untitled.gif)
