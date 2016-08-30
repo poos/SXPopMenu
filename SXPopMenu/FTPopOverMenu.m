@@ -37,6 +37,10 @@ typedef NS_ENUM(NSUInteger, FTPopOverMenuArrowDirection) {
      *  Down
      */
     FTPopOverMenuArrowDirectionDown,
+    /**
+     *  None
+     */
+    FTPopOverMenuArrowDirectionNone,
 };
 
 #pragma mark - FTPopOverMenuCell
@@ -145,6 +149,9 @@ typedef NS_ENUM(NSUInteger, FTPopOverMenuArrowDirection) {
         case FTPopOverMenuArrowDirectionDown:
             _menuTableView.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height - FTDefaultMenuArrowHeight);
             break;
+        case FTPopOverMenuArrowDirectionNone:
+            _menuTableView.frame = CGRectMake(0, FTDefaultMenuArrowHeight, self.frame.size.width, self.frame.size.height - FTDefaultMenuArrowHeight);
+            break;
         default:
             break;
     }
@@ -194,6 +201,23 @@ typedef NS_ENUM(NSUInteger, FTPopOverMenuArrowDirection) {
             [path addLineToPoint:CGPointMake(self.bounds.size.width , anglePoint.y - (FTDefaultMenuCornerRadius + FTDefaultMenuArrowHeight))];
             [path addArcWithCenter:CGPointMake(self.bounds.size.width - FTDefaultMenuCornerRadius, anglePoint.y - (FTDefaultMenuCornerRadius + FTDefaultMenuArrowHeight)) radius:FTDefaultMenuCornerRadius startAngle:0 endAngle:M_PI_2 clockwise:YES];
             [path addLineToPoint:CGPointMake(anglePoint.x + FTDefaultMenuArrowWidth, anglePoint.y - FTDefaultMenuArrowHeight)];
+            [path closePath];
+            
+        }break;
+        case FTPopOverMenuArrowDirectionNone:{
+            
+            // [path moveToPoint:anglePoint];
+            [path moveToPoint:CGPointMake(anglePoint.x - FTDefaultMenuArrowWidth, FTDefaultMenuArrowHeight)];
+            [path addLineToPoint:CGPointMake(anglePoint.x - FTDefaultMenuArrowWidth, FTDefaultMenuArrowHeight)];
+            [path addLineToPoint:CGPointMake(FTDefaultMenuCornerRadius, FTDefaultMenuArrowHeight)];
+            [path addArcWithCenter:CGPointMake(FTDefaultMenuCornerRadius, FTDefaultMenuArrowHeight + FTDefaultMenuCornerRadius) radius:FTDefaultMenuCornerRadius startAngle:-M_PI_2 endAngle:-M_PI clockwise:NO];
+            [path addLineToPoint:CGPointMake(0, self.bounds.size.height - FTDefaultMenuCornerRadius)];
+            [path addArcWithCenter:CGPointMake(FTDefaultMenuCornerRadius, self.bounds.size.height - FTDefaultMenuCornerRadius) radius:FTDefaultMenuCornerRadius startAngle:M_PI endAngle:M_PI_2 clockwise:NO];
+            [path addLineToPoint:CGPointMake(self.bounds.size.width - FTDefaultMenuCornerRadius, self.bounds.size.height)];
+            [path addArcWithCenter:CGPointMake(self.bounds.size.width - FTDefaultMenuCornerRadius, self.bounds.size.height - FTDefaultMenuCornerRadius) radius:FTDefaultMenuCornerRadius startAngle:M_PI_2 endAngle:0 clockwise:NO];
+            [path addLineToPoint:CGPointMake(self.bounds.size.width , FTDefaultMenuCornerRadius + FTDefaultMenuArrowHeight)];
+            [path addArcWithCenter:CGPointMake(self.bounds.size.width - FTDefaultMenuCornerRadius, FTDefaultMenuCornerRadius + FTDefaultMenuArrowHeight) radius:FTDefaultMenuCornerRadius startAngle:0 endAngle:-M_PI_2 clockwise:NO];
+            [path addLineToPoint:CGPointMake(anglePoint.x + FTDefaultMenuArrowWidth, FTDefaultMenuArrowHeight)];
             [path closePath];
             
         }break;
@@ -274,6 +298,7 @@ typedef NS_ENUM(NSUInteger, FTPopOverMenuArrowDirection) {
 @property (nonatomic, strong) NSArray<NSString*> *menuImageArray;
 @property (nonatomic, assign) BOOL isCurrentlyOnScreen;
 
+@property (nonatomic, assign) BOOL noneArrow;
 
 @end
 
@@ -288,52 +313,22 @@ typedef NS_ENUM(NSUInteger, FTPopOverMenuArrowDirection) {
 }
 
 #pragma mark - Public Method
-+ (void) showForSender:(UIView *)sender
-              withMenu:(NSArray<NSString*> *)menuArray
-             doneBlock:(FTPopOverMenuDoneBlock)doneBlock
-          dismissBlock:(FTPopOverMenuDismissBlock)dismissBlock
-{
-    [[self sharedInstance] showForSender:sender senderFrame:CGRectNull withMenu:menuArray imageNameArray:nil doneBlock:doneBlock dismissBlock:dismissBlock];
-}
-+ (void) showForSender:(UIView *)sender
-              withMenu:(NSArray<NSString*> *)menuArray
-        imageNameArray:(NSArray<NSString*> *)imageNameArray
-             doneBlock:(FTPopOverMenuDoneBlock)doneBlock
-          dismissBlock:(FTPopOverMenuDismissBlock)dismissBlock;
-{
-    [[self sharedInstance] showForSender:sender senderFrame:CGRectNull withMenu:menuArray imageNameArray:imageNameArray doneBlock:doneBlock dismissBlock:dismissBlock];
-}
 
-+ (void) showFromEvent:(UIEvent *)event
-              withMenu:(NSArray<NSString*> *)menuArray
-             doneBlock:(FTPopOverMenuDoneBlock)doneBlock
-          dismissBlock:(FTPopOverMenuDismissBlock)dismissBlock
-{
-    [[self sharedInstance] showForSender:[event.allTouches.anyObject view] senderFrame:CGRectNull withMenu:menuArray imageNameArray:nil doneBlock:doneBlock dismissBlock:dismissBlock];
-}
-
-+ (void) showFromEvent:(UIEvent *)event
-              withMenu:(NSArray<NSString*> *)menuArray
-        imageNameArray:(NSArray<NSString*> *)imageNameArray
-             doneBlock:(FTPopOverMenuDoneBlock)doneBlock
-          dismissBlock:(FTPopOverMenuDismissBlock)dismissBlock
-{
-    [[self sharedInstance] showForSender:[event.allTouches.anyObject view] senderFrame:CGRectNull withMenu:menuArray imageNameArray:imageNameArray doneBlock:doneBlock dismissBlock:dismissBlock];
-    
-}
-+ (void) showFromSenderFrame:(CGRect )senderFrame
-                    withMenu:(NSArray<NSString*> *)menuArray
-                   doneBlock:(FTPopOverMenuDoneBlock)doneBlock
-                dismissBlock:(FTPopOverMenuDismissBlock)dismissBlock
-{
-    [[self sharedInstance] showForSender:nil senderFrame:senderFrame withMenu:menuArray imageNameArray:nil doneBlock:doneBlock dismissBlock:dismissBlock];
-}
 + (void) showFromSenderFrame:(CGRect )senderFrame
                     withMenu:(NSArray<NSString*> *)menuArray
               imageNameArray:(NSArray<NSString*> *)imageNameArray
                    doneBlock:(FTPopOverMenuDoneBlock)doneBlock
                 dismissBlock:(FTPopOverMenuDismissBlock)dismissBlock
 {
+    [[self sharedInstance] setNoneArraw:NO];
+    [[self sharedInstance] showForSender:nil senderFrame:senderFrame withMenu:menuArray imageNameArray:imageNameArray doneBlock:doneBlock dismissBlock:dismissBlock];
+}
++ (void)showNoneArrowFromSenderFrame:(CGRect)senderFrame
+                            withMenu:(NSArray<NSString *> *)menuArray
+                      imageNameArray:(NSArray<NSString *> *)imageNameArray
+                           doneBlock:(FTPopOverMenuDoneBlock)doneBlock
+                        dismissBlock:(FTPopOverMenuDismissBlock)dismissBlock {
+    [[self sharedInstance] setNoneArraw:YES];
     [[self sharedInstance] showForSender:nil senderFrame:senderFrame withMenu:menuArray imageNameArray:imageNameArray doneBlock:doneBlock dismissBlock:dismissBlock];
 }
 
@@ -416,10 +411,12 @@ typedef NS_ENUM(NSUInteger, FTPopOverMenuArrowDirection) {
     self.doneBlock = doneBlock;
     self.dismissBlock = dismissBlock;
     
-    
+//    _noneArrow = NO;
     [self adjustPopOverMenu];
 }
-
+- (void)setNoneArraw:(BOOL)isYes {
+    _noneArrow = isYes;
+}
 -(void)adjustPopOverMenu
 {
     
@@ -485,6 +482,9 @@ typedef NS_ENUM(NSUInteger, FTPopOverMenuArrowDirection) {
     
     _popMenuView.frame = menuRect;
     _popMenuView.tintColor = self.tintColor;
+    if (_noneArrow) {
+        arrowDirection = FTPopOverMenuArrowDirectionNone;
+    }
     
     [_popMenuView showWithAnglePoint:menuArrowPoint
                        withNameArray:self.menuArray

@@ -58,72 +58,20 @@ typedef void (^FTPopOverMenuDismissBlock)();
  */
 //+(void)setPreferedWidth:(CGFloat )preferedWidth;
 
-/**
- *  show method with sender without images
- *
- *  @param sender       sender
- *  @param menuArray    menuArray
- *  @param doneBlock    FTPopOverMenuDoneBlock
- *  @param dismissBlock FTPopOverMenuDismissBlock
- */
-+ (void) showForSender:(UIView *)sender
-              withMenu:(NSArray<NSString*> *)menuArray
-             doneBlock:(FTPopOverMenuDoneBlock)doneBlock
-          dismissBlock:(FTPopOverMenuDismissBlock)dismissBlock;
 
 /**
- *  show method with sender with imageNameArray
+ *  show method with SenderFrame with imageNameArray
  *
- *  @param sender         sender
+ *  @param senderFrame    senderFrame
  *  @param menuArray      menuArray
  *  @param imageNameArray imageNameArray
- *  @param doneBlock      FTPopOverMenuDoneBlock
- *  @param dismissBlock   FTPopOverMenuDismissBlock
- */
-+ (void) showForSender:(UIView *)sender
-              withMenu:(NSArray<NSString*> *)menuArray
-        imageNameArray:(NSArray<NSString*> *)imageNameArray
-             doneBlock:(FTPopOverMenuDoneBlock)doneBlock
-          dismissBlock:(FTPopOverMenuDismissBlock)dismissBlock;
-
-/**
- *  show method for barbuttonitems with event without images
- *
- *  @param event          UIEvent
- *  @param menuArray      menuArray
- *  @param doneBlock      FTPopOverMenuDoneBlock
- *  @param dismissBlock   FTPopOverMenuDismissBlock
- */
-+ (void) showFromEvent:(UIEvent *)event
-              withMenu:(NSArray<NSString*> *)menuArray
-             doneBlock:(FTPopOverMenuDoneBlock)doneBlock
-          dismissBlock:(FTPopOverMenuDismissBlock)dismissBlock;
-
-/**
- *  show method for barbuttonitems with event with imageNameArray
- *
- *  @param event          UIEvent
- *  @param menuArray      menuArray
- *  @param imageNameArray imageNameArray
- *  @param doneBlock      FTPopOverMenuDoneBlock
- *  @param dismissBlock   FTPopOverMenuDismissBlock
- */
-+ (void) showFromEvent:(UIEvent *)event
-              withMenu:(NSArray<NSString*> *)menuArray
-        imageNameArray:(NSArray<NSString*> *)imageNameArray
-             doneBlock:(FTPopOverMenuDoneBlock)doneBlock
-          dismissBlock:(FTPopOverMenuDismissBlock)dismissBlock;
-
-/**
- *  show method with SenderFrame without images
- *
- *  @param senderFrame  senderFrame
- *  @param menuArray    menuArray
- *  @param doneBlock    doneBlock
- *  @param dismissBlock dismissBlock
+ *  @param doneBlock      doneBlock
+ *  @param dismissBlock   dismissBlock
+ 
  */
 + (void) showFromSenderFrame:(CGRect )senderFrame
                     withMenu:(NSArray<NSString*> *)menuArray
+              imageNameArray:(NSArray<NSString*> *)imageNameArray
                    doneBlock:(FTPopOverMenuDoneBlock)doneBlock
                 dismissBlock:(FTPopOverMenuDismissBlock)dismissBlock;
 /**
@@ -134,13 +82,13 @@ typedef void (^FTPopOverMenuDismissBlock)();
  *  @param imageNameArray imageNameArray
  *  @param doneBlock      doneBlock
  *  @param dismissBlock   dismissBlock
-
+ 
  */
-+ (void) showFromSenderFrame:(CGRect )senderFrame
-                    withMenu:(NSArray<NSString*> *)menuArray
-              imageNameArray:(NSArray<NSString*> *)imageNameArray
-                   doneBlock:(FTPopOverMenuDoneBlock)doneBlock
-                dismissBlock:(FTPopOverMenuDismissBlock)dismissBlock;
++ (void)showNoneArrowFromSenderFrame:(CGRect)senderFrame
+                            withMenu:(NSArray<NSString *> *)menuArray
+                      imageNameArray:(NSArray<NSString *> *)imageNameArray
+                           doneBlock:(FTPopOverMenuDoneBlock)doneBlock
+                        dismissBlock:(FTPopOverMenuDismissBlock)dismissBlock;
 /**
  *  dismiss method
  */

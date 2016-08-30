@@ -15,8 +15,6 @@
 		5A2E15881CC0ED7A003BDE12 /* DemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A2E15871CC0ED7A003BDE12 /* DemoTests.m */; };
 		5A2E15931CC0ED7A003BDE12 /* DemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A2E15921CC0ED7A003BDE12 /* DemoUITests.m */; };
 		5A2E15A21CC0EDB0003BDE12 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A2E15A11CC0EDB0003BDE12 /* ViewController.m */; };
-		5A2E15A71CC0EDBC003BDE12 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A2E15A41CC0EDBC003BDE12 /* SecondViewController.m */; };
-		5A2E15A81CC0EDBC003BDE12 /* SecondTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A2E15A61CC0EDBC003BDE12 /* SecondTableViewCell.m */; };
 		CDF1731F1D7547D7004D7C47 /* FTPopOverMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = CDF1731E1D7547D7004D7C47 /* FTPopOverMenu.m */; };
 /* End PBXBuildFile section */
 
@@ -54,10 +52,6 @@
 		5A2E15941CC0ED7A003BDE12 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5A2E15A01CC0EDB0003BDE12 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		5A2E15A11CC0EDB0003BDE12 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		5A2E15A31CC0EDBC003BDE12 /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		5A2E15A41CC0EDBC003BDE12 /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
-		5A2E15A51CC0EDBC003BDE12 /* SecondTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondTableViewCell.h; sourceTree = "<group>"; };
-		5A2E15A61CC0EDBC003BDE12 /* SecondTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondTableViewCell.m; sourceTree = "<group>"; };
 		CDF1731D1D7547D7004D7C47 /* FTPopOverMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTPopOverMenu.h; sourceTree = "<group>"; };
 		CDF1731E1D7547D7004D7C47 /* FTPopOverMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTPopOverMenu.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -116,10 +110,6 @@
 				5A2E15711CC0ED79003BDE12 /* AppDelegate.m */,
 				5A2E15A01CC0EDB0003BDE12 /* ViewController.h */,
 				5A2E15A11CC0EDB0003BDE12 /* ViewController.m */,
-				5A2E15A31CC0EDBC003BDE12 /* SecondViewController.h */,
-				5A2E15A41CC0EDBC003BDE12 /* SecondViewController.m */,
-				5A2E15A51CC0EDBC003BDE12 /* SecondTableViewCell.h */,
-				5A2E15A61CC0EDBC003BDE12 /* SecondTableViewCell.m */,
 				5A2E15761CC0ED79003BDE12 /* Main.storyboard */,
 				5A2E15791CC0ED79003BDE12 /* Assets.xcassets */,
 				5A2E157B1CC0ED79003BDE12 /* LaunchScreen.storyboard */,
@@ -302,8 +292,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5A2E15A71CC0EDBC003BDE12 /* SecondViewController.m in Sources */,
-				5A2E15A81CC0EDBC003BDE12 /* SecondTableViewCell.m in Sources */,
 				5A2E15A21CC0EDB0003BDE12 /* ViewController.m in Sources */,
 				CDF1731F1D7547D7004D7C47 /* FTPopOverMenu.m in Sources */,
 				5A2E15721CC0ED79003BDE12 /* AppDelegate.m in Sources */,

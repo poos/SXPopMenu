@@ -76,97 +76,13 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="FTPopOverMenuDemo" id="ImE-bb-cea">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="tZU-Xd-Ydz">
-                            <connections>
-                                <segue destination="zdE-8W-jxJ" kind="show" id="Hjk-EG-H1w">
-                                    <nil key="action"/>
-                                </segue>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="tZU-Xd-Ydz"/>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ksh-iK-DS5" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1476.5" y="336.5"/>
-        </scene>
-        <!--Second View Controller-->
-        <scene sceneID="7PI-50-VFB">
-            <objects>
-                <viewController storyboardIdentifier="SecondViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="zdE-8W-jxJ" customClass="SecondViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="4aN-mF-3sY"/>
-                        <viewControllerLayoutGuide type="bottom" id="d4X-yi-WgS"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Gux-5G-xQU">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="90" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="wy1-vj-egv">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SecondTableViewCellIdentifier" rowHeight="90" id="3UE-cy-5Q6" customClass="SecondTableViewCell">
-                                        <rect key="frame" x="0.0" y="114" width="375" height="90"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3UE-cy-5Q6" id="KUl-Bt-ZHT">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="89"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YnW-x2-LM2">
-                                                    <rect key="frame" x="16" y="30" width="30" height="30"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="30" id="cqR-8H-BVV"/>
-                                                        <constraint firstAttribute="width" constant="30" id="vWi-zu-Az9"/>
-                                                    </constraints>
-                                                    <state key="normal" title="One"/>
-                                                </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RuU-KO-1T4">
-                                                    <rect key="frame" x="337" y="30" width="30" height="30"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="30" id="cdP-9Y-6Dg"/>
-                                                        <constraint firstAttribute="height" constant="30" id="xQg-fI-nSu"/>
-                                                    </constraints>
-                                                    <state key="normal" title="Two"/>
-                                                </button>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="RuU-KO-1T4" firstAttribute="centerY" secondItem="KUl-Bt-ZHT" secondAttribute="centerY" id="BCg-oV-CtD"/>
-                                                <constraint firstItem="YnW-x2-LM2" firstAttribute="centerY" secondItem="KUl-Bt-ZHT" secondAttribute="centerY" id="KM2-gQ-9ni"/>
-                                                <constraint firstAttribute="trailing" secondItem="RuU-KO-1T4" secondAttribute="trailing" constant="8" id="hvV-Gq-tfF"/>
-                                                <constraint firstItem="YnW-x2-LM2" firstAttribute="leading" secondItem="KUl-Bt-ZHT" secondAttribute="leading" constant="16" id="sXd-Lz-Y1l"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="buttonOne" destination="YnW-x2-LM2" id="YXs-ff-hvL"/>
-                                            <outlet property="buttonTwo" destination="RuU-KO-1T4" id="MoX-Hs-A57"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="wy1-vj-egv" secondAttribute="trailing" id="2yf-Ve-97Z"/>
-                            <constraint firstItem="d4X-yi-WgS" firstAttribute="top" secondItem="wy1-vj-egv" secondAttribute="bottom" id="5ut-G1-YKv"/>
-                            <constraint firstItem="wy1-vj-egv" firstAttribute="top" secondItem="4aN-mF-3sY" secondAttribute="bottom" id="Xga-7F-EOk"/>
-                            <constraint firstItem="wy1-vj-egv" firstAttribute="leading" secondItem="Gux-5G-xQU" secondAttribute="leading" id="mhs-UB-wb2"/>
-                            <constraint firstItem="wy1-vj-egv" firstAttribute="top" secondItem="Gux-5G-xQU" secondAttribute="top" id="zWC-32-KUB"/>
-                        </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="Xga-7F-EOk"/>
-                            </mask>
-                        </variation>
-                    </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-                    <connections>
-                        <outlet property="tableView" destination="wy1-vj-egv" id="aW1-kp-GWX"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="32x-Lb-Hv3" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1906.5" y="336.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Kta-KX-5hK">
