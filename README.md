@@ -4,7 +4,10 @@ create a popMenu(气泡菜单) for you app
 
 ##导入方法
 
+
 pod 'SXPopMenu', '~>1.1.0'
+
+pod 'SXPopMenu', '~>1.2.0'
 
 ##调用
 头文件#import "FTPopOverMenu.h"
@@ -44,5 +47,9 @@ pod 'SXPopMenu', '~>1.1.0'
                            doneBlock:(FTPopOverMenuDoneBlock)doneBlock
                         dismissBlock:(FTPopOverMenuDismissBlock)dismissBlock;
 ```
+####1.1.0
+注意1.1.0下边是tableView默认的横线
+![img](https://github.com/poos/SXPopMenu/blob/master/1_1_0.gif)
 
-![img](https://github.com/poos/SXPopMenu/blob/master/Untitled.gif)
+####1.2.0
+![img](https://github.com/poos/SXPopMenu/blob/master/1_2_0.gif)
