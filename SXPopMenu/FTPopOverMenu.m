@@ -49,6 +49,7 @@ typedef NS_ENUM(NSUInteger, FTPopOverMenuArrowDirection) {
 
 @property (nonatomic, strong) UIImageView *iconImageView;
 @property (nonatomic, strong) UILabel *menuNameLabel;
+@property (nonatomic, strong) UIView *lineView;
 
 @end
 
@@ -81,6 +82,9 @@ typedef NS_ENUM(NSUInteger, FTPopOverMenuArrowDirection) {
         _menuNameLabel.textColor = FTDefaultTextColor;
         _menuNameLabel.text = menuName;
         [self addSubview:_menuNameLabel];
+        _lineView = [[UIView alloc] initWithFrame:CGRectMake(0, (_menuNameLabel.frame.size.height/2+_menuNameLabel.frame.origin.y)*2, self.contentView.bounds.size.width, .5)];
+        _lineView.backgroundColor = [UIColor colorWithRed:232 / 255.0 green:232 / 255.0 blue:232 / 255.0 alpha:1];
+        [self addSubview:_lineView];
     }
     return self;
 }
@@ -119,6 +123,7 @@ typedef NS_ENUM(NSUInteger, FTPopOverMenuArrowDirection) {
         _menuTableView.separatorInset = UIEdgeInsetsMake(0, FTDefaultMargin, 0, FTDefaultMargin);
         _menuTableView.scrollEnabled = NO;
         _menuTableView.clipsToBounds = YES;
+        _menuTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _menuTableView.delegate = self;
         _menuTableView.dataSource = self;
         [self addSubview:_menuTableView];
@@ -266,7 +271,6 @@ typedef NS_ENUM(NSUInteger, FTPopOverMenuArrowDirection) {
                                                           reuseIdentifier:FTPopOverMenuTableViewCellIndentifier
                                                                  menuName:[NSString stringWithFormat:@"%@", _menuStringArray[indexPath.row]]
                                                             iconImageName:imageName];
-    
     
     return menuCell;
 }
