@@ -49,6 +49,7 @@ pod 'SXPopMenu', '~>1.2.0'
 ```
 ####1.1.0
 注意1.1.0下边是tableView默认的横线
+
 ![img](https://github.com/poos/SXPopMenu/blob/master/1_1_0.gif)
 
 ####1.2.0
