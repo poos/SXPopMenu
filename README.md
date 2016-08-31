@@ -48,7 +48,7 @@ pod 'SXPopMenu', '~>1.2.0'
                         dismissBlock:(FTPopOverMenuDismissBlock)dismissBlock;
 ```
 ####1.1.0
-注意1.1.0下边是tableView默认的横线,录制质量原因看不清楚
+##注意1.1.0下边是tableView默认的横线
 
 ![img](https://github.com/poos/SXPopMenu/blob/master/1_1_0.gif)
 
