@@ -2,7 +2,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "SXPopMenu"
-  s.version      = "1.2.0"
+  s.version      = "1.3.0"
   s.summary      = "you can create a PopMenu for you app"
   #s.description  = <<-DESC
   #                  DESC

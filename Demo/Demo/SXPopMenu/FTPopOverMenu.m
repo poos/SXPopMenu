@@ -82,6 +82,13 @@ typedef NS_ENUM(NSUInteger, FTPopOverMenuArrowDirection) {
         _menuNameLabel.textColor = FTDefaultTextColor;
         _menuNameLabel.text = menuName;
         [self addSubview:_menuNameLabel];
+        if (iconImage) {
+            
+        }else{
+            _menuNameLabel.font = [UIFont systemFontOfSize:18];
+            _menuNameLabel.textAlignment = NSTextAlignmentCenter;
+            _menuNameLabel.frame = CGRectMake(10, margin, FTDefaultMenuWidth - margin*2, FTDefaultMenuIconWidth);
+        }
         _lineView = [[UIView alloc] initWithFrame:CGRectMake(0, (_menuNameLabel.frame.size.height/2+_menuNameLabel.frame.origin.y)*2, self.contentView.bounds.size.width, .5)];
         _lineView.backgroundColor = [UIColor colorWithRed:232 / 255.0 green:232 / 255.0 blue:232 / 255.0 alpha:1];
         [self addSubview:_lineView];

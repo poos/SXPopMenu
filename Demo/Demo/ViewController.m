@@ -12,6 +12,7 @@
 
 @interface ViewController () {
     BOOL _change;
+    BOOL _noIcon;
 }
 
 @end
@@ -29,8 +30,7 @@
 }
 
 - (IBAction)showMenuFromButton:(UIButton *)sender {
-    _change = !_change;
-    if (_change) {
+    if (!_change) {
         [FTPopOverMenu showFromSenderFrame:sender.frame
                                   withMenu:@[ @"Menu1", @"Menu2", @"Menu3" ]
                             imageNameArray:@[ @"setting_icon", @"setting_icon", @"setting_icon" ]
@@ -41,13 +41,25 @@
                               dismissBlock:^{
                                   NSLog(@"user canceled. do nothing.");
                               }];
-    } else {
+        _change = !_change;
+    } else if (_noIcon) {
         [FTPopOverMenu showNoneArrowFromSenderFrame:sender.frame
                                            withMenu:@[ @"Menu1", @"Menu2", @"Menu3" ]
                                      imageNameArray:@[@"setting_icon", @"setting_icon", @"setting_icon"]
                                           doneBlock:^(NSInteger selectedIndex) {
                                           }
                                        dismissBlock:nil];
+        _noIcon = !_noIcon;
+        _change = !_change;
+    } else {
+        [FTPopOverMenu showNoneArrowFromSenderFrame:sender.frame
+                                           withMenu:@[ @"Menu1", @"Menu2", @"Menu3" ]
+                                     imageNameArray:nil
+                                          doneBlock:^(NSInteger selectedIndex) {
+                                          }
+                                       dismissBlock:nil];
+        _noIcon = !_noIcon;
+
     }
 }
 
